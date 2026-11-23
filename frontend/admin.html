@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard | WorkshopFlow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-page">
+
+<div class="dashboard-layout">
+
+
+    <aside class="sidebar">
+
+        <div class="logo">
+            <span class="logo-icon">W</span>
+            WorkshopFlow
+        </div>
+
+        <p class="sidebar-label">WORKSPACE</p>
+
+        <a href="#" class="sidebar-link active">▦ Overview</a>
+        <a href="#createJob" class="sidebar-link">＋ Create Job Card</a>
+        <a href="#jobsSection" class="sidebar-link">▤ Service Records</a>
+
+        <div class="sidebar-bottom">
+            <a href="index.html" class="sidebar-link">← Home</a>
+            <a href="#" class="sidebar-link" onclick="logout()">↪ Logout</a>
+        </div>
+
+    </aside>
+
+
+    <main class="dashboard-main">
+
+        <header class="dashboard-header">
+
+            <div>
+                <p class="welcome-text">WORKSHOP MANAGEMENT</p>
+                <h1>Admin Dashboard</h1>
+            </div>
+
+            <div class="admin-profile">
+                <div class="profile-avatar">A</div>
+                <div>
+                    <h4>Administrator</h4>
+                    <p>Workshop Manager</p>
+                </div>
+            </div>
+
+        </header>
+
+
+        <section class="welcome-banner">
+
+            <div>
+                <span>WORKSHOP OVERVIEW</span>
+                <h2>Manage Your Workshop Efficiently.</h2>
+                <p>Monitor service activities and customer vehicles.</p>
+            </div>
+
+            <div class="banner-icon">⚙</div>
+
+        </section>
+
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+                <p>Total Jobs</p>
+                <h2 id="totalJobs">0</h2>
+                <span>All service records</span>
+            </div>
+
+            <div class="stat-card">
+                <p>Pending</p>
+                <h2 id="pendingJobs">0</h2>
+                <span>Waiting for service</span>
+            </div>
+
+            <div class="stat-card">
+                <p>In Progress</p>
+                <h2 id="progressJobs">0</h2>
+                <span>Currently servicing</span>
+            </div>
+
+            <div class="stat-card orange-stat">
+                <p>Ready</p>
+                <h2 id="readyJobs">0</h2>
+                <span>Ready for delivery</span>
+            </div>
+
+        </section>
+
+
+        <section class="content-card" id="createJob">
+
+            <div class="section-title">
+                <div>
+                    <span class="tag">NEW SERVICE</span>
+                    <h2>Create Job Card</h2>
+                </div>
+            </div>
+
+
+            <form id="jobForm" class="job-form">
+
+                <div class="form-group">
+                    <label>Customer Name</label>
+                    <input id="customerName" required placeholder="Customer name">
+                </div>
+
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input id="phone" required placeholder="Phone number">
+                </div>
+
+                <div class="form-group">
+                    <label>Vehicle Number</label>
+                    <input id="vehicleNumber" required placeholder="TN XX XX XXXX">
+                </div>
+
+                <div class="form-group">
+                    <label>Vehicle Model</label>
+                    <input id="vehicleModel" required placeholder="Example: Honda Activa">
+                </div>
+
+                <div class="form-group full-width">
+                    <label>Customer Complaint</label>
+                    <textarea
+                        id="complaint"
+                        rows="4"
+                        required
+                        placeholder="Describe the vehicle problem..."
+                    ></textarea>
+                </div>
+
+                <div class="full-width">
+                    <button type="submit" class="primary-button">
+                        + Create Job Card
+                    </button>
+                </div>
+
+            </form>
+
+            <p id="jobMessage"></p>
+
+        </section>
+
+
+        <section class="content-card" id="jobsSection">
+
+            <div class="section-title">
+                <div>
+                    <span class="tag">SERVICE MANAGEMENT</span>
+                    <h2>Recent Job Cards</h2>
+                </div>
+
+                <button class="secondary-button" onclick="loadJobs()">
+                    ↻ Refresh
+                </button>
+            </div>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Customer</th>
+                            <th>Vehicle</th>
+                            <th>Job Code</th>
+                            <th>Status</th>
+                            <th>Update</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="jobsTable"></tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script src="js/admin.js"></script>
+
+</body>
+</html>

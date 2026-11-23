@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Vehicle Tracking | WorkshopFlow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="customer-page">
+
+<header class="navbar">
+
+    <div class="logo">
+        <span class="logo-icon">W</span>
+        WorkshopFlow
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#" onclick="logout()" class="nav-button">Logout</a>
+    </nav>
+
+</header>
+
+
+<section class="customer-hero">
+
+    <span class="tag">CUSTOMER PORTAL</span>
+
+    <h1>Track Your Vehicle.</h1>
+
+    <p>
+        Stay updated on your vehicle's service progress
+        without calling the workshop.
+    </p>
+
+</section>
+
+
+<section class="tracking-card">
+
+    <div class="tracking-heading">
+        <div class="tracking-icon">🛵</div>
+
+        <div>
+            <h2>Vehicle Tracking</h2>
+            <p>Enter your vehicle number to check the latest status.</p>
+        </div>
+    </div>
+
+
+    <form id="trackForm">
+
+        <label>Vehicle Registration Number</label>
+
+        <input
+            id="trackNumber"
+            placeholder="Example: TN01AB1234"
+            required
+        >
+
+        <button class="primary-button full-button" type="submit">
+            Track My Vehicle →
+        </button>
+
+    </form>
+
+
+    <div id="trackingResult"></div>
+
+</section>
+
+
+<footer>
+    <h3>WorkshopFlow</h3>
+    <p>Making vehicle service easier and smarter.</p>
+</footer>
+
+
+<script src="js/customer.js"></script>
+
+</body>
+</html>

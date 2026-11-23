@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login | WorkshopFlow</title>
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #F8F5EB;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+        }
+
+        .login-container {
+            width: 100%;
+            max-width: 1050px;
+            min-height: 620px;
+            background: #FFFDF7;
+            border-radius: 24px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(48, 58, 50, 0.12);
+        }
+
+        .login-left {
+            background: #526B56;
+            color: white;
+            padding: 65px 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand {
+            font-size: 29px;
+            font-weight: 800;
+        }
+
+        .brand span {
+            color: #E99545;
+        }
+
+        .welcome-content h1 {
+            font-size: 40px;
+            margin-bottom: 18px;
+            line-height: 1.2;
+        }
+
+        .welcome-content p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #E5EBDD;
+        }
+
+        .tagline {
+            color: #FCE9D3;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
+
+        .login-right {
+            padding: 55px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .login-heading h2 {
+            color: #303A32;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .login-heading p {
+            color: #788078;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+
+        .role-selection {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .role-btn {
+            padding: 15px;
+            border: 1.5px solid #DCE4D7;
+            background: #F8F5EB;
+            color: #526B56;
+            border-radius: 12px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .role-btn:hover {
+            border-color: #879B83;
+            transform: translateY(-2px);
+        }
+
+        .role-btn.active {
+            background: #526B56;
+            color: white;
+            border-color: #526B56;
+        }
+
+        .form-group {
+            margin-bottom: 17px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #303A32;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 14px;
+            border: 1.5px solid #E1E5DB;
+            border-radius: 10px;
+            outline: none;
+            background: #FFFDF7;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus {
+            border-color: #879B83;
+            box-shadow: 0 0 0 3px rgba(135, 155, 131, 0.12);
+        }
+
+        .login-btn {
+            width: 100%;
+            padding: 16px;
+            background: #526B56;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: 0.3s;
+            margin-top: 8px;
+        }
+
+        .login-btn:hover {
+            background: #3E5843;
+            transform: translateY(-2px);
+        }
+
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #loginMessage {
+            min-height: 22px;
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .back-home {
+            display: inline-block;
+            margin-top: 22px;
+            color: #788078;
+            text-decoration: none;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .back-home:hover {
+            color: #526B56;
+        }
+
+        @media(max-width: 750px) {
+            .login-container {
+                grid-template-columns: 1fr;
+            }
+
+            .login-left {
+                min-height: 230px;
+                padding: 30px;
+            }
+
+            .welcome-content h1 {
+                font-size: 28px;
+                margin-top: 25px;
+            }
+
+            .login-right {
+                padding: 35px 28px;
+            }
+        }
+
+        @media(max-width: 400px) {
+            .role-selection {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="login-container">
+
+    <!-- LEFT SECTION -->
+    <div class="login-left">
+
+        <div class="brand">
+            Workshop<span>Flow</span>
+        </div>
+
+        <div class="welcome-content">
+            <h1>Welcome Back!</h1>
+
+            <p>
+                Manage your workshop or track your vehicle
+                service with ease.
+            </p>
+        </div>
+
+        <div class="tagline">
+            Smart Service. Smooth Experience.
+        </div>
+
+    </div>
+
+
+    <!-- RIGHT SECTION -->
+    <div class="login-right">
+
+        <div class="login-heading">
+            <h2>Sign In</h2>
+
+            <p id="loginDescription">
+                Select your account type to continue.
+            </p>
+        </div>
+
+
+        <!-- ROLE SELECTION -->
+        <div class="role-selection">
+
+            <button
+                type="button"
+                class="role-btn active"
+                data-role="admin">
+                👨‍💼 Admin
+            </button>
+
+            <button
+                type="button"
+                class="role-btn"
+                data-role="customer">
+                🛵 Customer
+            </button>
+
+        </div>
+
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm">
+
+            <!-- CUSTOMER DETAILS -->
+            <div id="customerFields" style="display:none;">
+
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+
+                    <input
+                        type="text"
+                        id="name"
+                        placeholder="Enter your full name">
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="Enter your phone number"
+                        pattern="[0-9]{10}"
+                        maxlength="10">
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+            <div class="form-group">
+
+                <label for="email">Email Address</label>
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+            <div class="form-group">
+
+                <label for="password">Password</label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required>
+
+            </div>
+
+
+            <button type="submit" class="login-btn" id="loginButton">
+                Login
+            </button>
+
+            <p id="loginMessage"></p>
+
+        </form>
+
+
+        <a href="index.html" class="back-home">
+            ← Back to Home
+        </a>
+
+    </div>
+
+</div>
+
+
+<script src="js/app.js"></script>
+
+</body>
+</html>
