@@ -5,6 +5,9 @@ from sqlalchemy import func
 from pydantic import BaseModel, EmailStr
 from typing import Optional
 import hashlib
+from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
+from pathlib import Path
 
 from database import get_db, init_db
 from models import User, JobCard
@@ -87,12 +90,11 @@ class StatusRequest(BaseModel):
 # HOME ROUTE
 # ==================================================
 
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+
 @app.get("/")
 def home():
-    return {
-        "message": "Welcome to WorkshopFlow API",
-        "status": "Running"
-    }
+    return FileResponse(FRONTEND_DIR / "index.html")
 
 
 # ==================================================
@@ -389,3 +391,9 @@ def dashboard(db: Session = Depends(get_db)):
         "delivered": delivered,
         "total_customers": total_customers
     }
+    
+app.mount(
+    "/",
+    StaticFiles(directory=str(FRONTEND_DIR), html=True),
+    name="frontend"
+)
